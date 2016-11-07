@@ -1,0 +1,29 @@
+{
+  "name": "app-proxy",
+  "version": "1.0.0",
+  "description": "Strategy-based load-balancing proxy",
+  "main": "proxy.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codelusion/app-proxy.git"
+  },
+  "keywords": [
+    "proxy",
+    "load-balancer"
+  ],
+  "author": "ash@aisaac.io",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codelusion/app-proxy/issues"
+  },
+  "homepage": "https://github.com/codelusion/app-proxy#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect": "^3.5.0",
+    "http-proxy": "^1.15.2",
+    "winston": "^2.3.0"
+  }
+}
