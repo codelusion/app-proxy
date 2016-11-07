@@ -5,7 +5,7 @@ var counter = 0;
 var selectTarget = (cfg, health, req, log) => {
     var targets = cfg['strategy']['targets'];
     if (targets.length > 0) {
-        if (counter > targets.length) {
+        if (counter >= targets.length) {
             counter = 0;
         }
         var target = targets[counter];
