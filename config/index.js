@@ -17,7 +17,7 @@ var loadConfig = (fname) => {
 var watchConfig = (fname) => {
     fs.watchFile(fname, function (c, p) {
         log.info('reloading config file: ' + fname);
-        applyChanges(config);
+        loadConfig(config);
         log.info(JSON.stringify(config, null, 4));
     });
 };
