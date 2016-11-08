@@ -1,9 +1,11 @@
 'use strict';
 
 var counter = 0;
+var config = null;
 
-var selectTarget = (cfg, health, req, log) => {
-    var targets = cfg.targets;
+var selectTarget = (cfg, healthStatus, req, log) => {
+    config = cfg;
+    var targets = healthStatus;
     if (targets.length > 0) {
         if (counter >= targets.length) {
             counter = 0;
@@ -12,11 +14,12 @@ var selectTarget = (cfg, health, req, log) => {
         counter += 1;
         return target;
     } else {
-        return new Error('Missing proxy targets');
+        throw new Error('Missing proxy targets');
     }
 };
 
 module.exports = (cfg, log) => {
+    config = cfg;
     return {
         selectTarget: selectTarget
     }

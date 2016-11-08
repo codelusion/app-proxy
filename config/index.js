@@ -8,7 +8,8 @@ var log = null;
 
 var loadConfig = (fname) => {
     try {
-        config = JSON.parse(fs.readFileSync(fname, 'utf8'))
+        config = JSON.parse(fs.readFileSync(fname, 'utf8'));
+        log.info(JSON.stringify(config, null, 4));
     } catch (e) {
         log.error(e);
     }
@@ -18,7 +19,6 @@ var watchConfig = (fname) => {
     fs.watchFile(fname, function (c, p) {
         log.info('reloading config file: ' + fname);
         loadConfig(config);
-        log.info(JSON.stringify(config, null, 4));
     });
 };
 
@@ -29,7 +29,7 @@ module.exports = (env, logger) => {
     loadConfig(fname);
     watchConfig(fname);
     return {
-        get: () => {
+        getCurrent: () => {
             return config;
         }
     };
